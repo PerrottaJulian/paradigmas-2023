@@ -15,8 +15,8 @@ for i in range(5):
     cadena = str(input("Escribir cadena de caracteres: "));
     cadenas_lista.append(cadena);
 
-for i2 in range (5, 0, -1):
-    cadenas_inversa.append(cadenas_lista[i2-1]);
+for i2 in range (4, -1, -1):
+    cadenas_inversa.append(cadenas_lista[i2]);
 
 print(cadenas_inversa);
 

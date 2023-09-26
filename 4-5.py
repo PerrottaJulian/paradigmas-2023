@@ -7,10 +7,8 @@ from random import randint;
 #variables
 numeros = [];
 
-r = int();
 temp = int();
 
-r = 0;
 temp = 0;
 
 #desarrollo
