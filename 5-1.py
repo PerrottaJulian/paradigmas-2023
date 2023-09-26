@@ -5,6 +5,7 @@
 ## d) Determinar cuántas palabras contuvieron la expresión "de", pero en la primera mitad de la palabra
 
 
+# 2023
 
 #variables
 texto = str();
