@@ -9,108 +9,72 @@
 
 #variables
 texto = str();
-palabra = str();
-palabras_condigito = int();
-tiene_4letras = int();
-tiene_5letras = int();
-tiene_3omenos_letras = int();
-tiene_6omas_letras = int();
-mitad_palabra = str();
-contiene_de = int();
-
 texto = "";
-palabra = "";
-palabras_condigito = 0;
-tiene_4letras = 0;
-tiene_5letras = 0;
-tiene_3omenos_letras = 0;
-tiene_6omas_letras = 0;
-mitad_palabra = "";
-contiene_de = 0;
 
 #modulos
-def cortarString(string, inicio, final):
-    return string[inicio : final];
-
-def separarPalabra(string):
-    espacio = string.find(" ");
-    palabra = string[0:espacio];
-    return palabra
-
-
-def tieneDigito(string):
-    es_digito = bool();
-
+def tieneDigito(string): #a)
     for caracter in string:
-        if caracter == "1" or caracter == "2" or caracter == "3" or caracter == "4" or caracter == "5" or caracter == "6" or caracter =="7" or caracter == "8" or caracter == "9":
-            es_digito = True;
-            break
+        if caracter.isdigit():
+            return 1
         else:
-            es_digito = False;
-    return es_digito
-    
-def longitudX(string, longitud):
-    if len(string) == longitud:
-        return True;
-    else:
-        return False;
+            continue
+    return 0
 
-def longitudMenorIgualX(string, longitud):
-    if len(string) <= longitud:
-        return True;
+def lenMenorIgual3(string):#b)
+    if len(string) <= 3:
+        return 1
     else:
-        return False;
-
-def longitudMayorIgualX(string, longitud):
-    if len(string) >= longitud:
-        return True;
+        return 0
+def lenEntre4y6(string):
+    if len(string) >= 4 and len(string) <= 6:
+       return 1
     else:
-        return False;
+        return 0   
+def lenMayor6(string):
+    if len(string) > 6:
+        return 1
+    else:
+        return 0  
 
+
+def contieneDe(string): #d)
+    if string.find("de") != -1:
+        return 1;
+    else:
+        return 0;
 def mitadString(string):
     return string[0 : round(len(string)/2 + 0.1)];
 
-def contieneDe(string):
-    if string.find("de") != -1:
-        return True;
-    else:
-        return False;
+#nuevas funciones principales
+
+def principal(texto):
+    palabras_con_digito = 0
+    palabras_3omenos= 0
+    palabras_entre4y6 = 0
+    palabras_masde6 = 0
+    palabras_primeramitad_contienen_de = 0;
+
+    palabras = texto.split(" ")
+
+    for palabra in palabras:
+        palabras_con_digito += tieneDigito(palabra)
+        palabras_3omenos += lenMenorIgual3(palabra)
+        palabras_entre4y6 += lenEntre4y6(palabra)
+        palabras_masde6 += lenMayor6(palabra)
+        palabras_primeramitad_contienen_de += contieneDe(mitadString(palabra))
+
+
+    print(f"Palabras que tenian al menos un digito como caracter: {palabras_con_digito}");
+    print(f"Palabras con 3 o menos letras: {palabras_3omenos}");
+    print(f"Palabras con entre 4 y 6 letras: {palabras_entre4y6}");
+    print(f"Palabras con mas de 6 letras: {palabras_masde6}")
+    print(f"Palabras que contienen la expresion 'de' en su primera mitad: {palabras_primeramitad_contienen_de}")
+
 
 
 #codigo principal
-texto = str(input("Ingresar texto, debe terminar con un punto: "));
-while len(texto) == 0 or texto[len(texto) - 1] != ".":
-    texto = str(input("Error. Volver a ingresar texto: "));
+mitexto = str(input("Ingresar texto, debe terminar con un punto: "));
+while len(mitexto) == 0 or mitexto[len(mitexto) - 1] != ".":
+    mitexto = str(input("Error. Volver a ingresar texto: "));
 
-texto = texto + " ";
-while (texto.find(" ") != -1):
-    palabra = separarPalabra(texto);
-    texto = cortarString(texto, len(palabra)+1, len(texto));
-
-    if palabra[len(palabra) - 1] == ".": #La ultima palabra siempre quedaba con un punto, esto sirve para sacarselo.
-        palabra = cortarString(palabra, 0 , len(palabra)-1);
-        
-    if tieneDigito(palabra) == True:
-        palabras_condigito += 1;
-
-    if longitudX(palabra, 4) == True:
-        tiene_4letras += 1;
-    elif longitudX(palabra, 5):
-        tiene_5letras += 1;
-    elif longitudMenorIgualX(palabra, 3):
-        tiene_3omenos_letras += 1;
-    elif longitudMayorIgualX(palabra, 6):
-        tiene_6omas_letras += 1;
-
-    if contieneDe(mitadString(palabra)) == True:
-        contiene_de += 1;
-
-
-print(f"Palabras que tenian al menos un digito como caracter: {palabras_condigito}");
-print(f"Palabras con 3 o menos letras: {tiene_3omenos_letras}");
-print(f"Palabras con 4 letras: {tiene_4letras}");
-print(f"Palabras con 5 letras: {tiene_5letras}");
-print(f"Palabras con 6 o mas letras: {tiene_6omas_letras}");
-
-print(f"""Palabras que contienen la expresion "de" en su primera mitad: {contiene_de}""")
-
+principal(mitexto)
