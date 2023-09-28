@@ -4,55 +4,43 @@
 ## El programa ira pidiendo los nombres de los equipos de cada partido y el resultado del partido, a continuación se imprimirá la quiniela de esa jornada.
 ## ¿Qué modificación habría que hacer en las tablas para guardar todos los resultados de todas las jornadas de la temporada?
 
+#2023
 
-
+goles = -1
 #carpetas
 import time;
 
-#variables
-seguir = str();
-equipo = str();
-goles = int();
-
-seguir = "";
-equipo = "";
-goles = int();
-
 #desarrollo
-equipos = [];
+partidos = [];
 resultados = [];
-quiniela = [];
 
 print("Ingresar los equipos y el resultado del partido respectivo.");
 
-while (seguir != "N"):
+for i in range (3):
     partido = [];
     resultado_partido = [];
 
     for i in range (2):
-        print("Equipo", i+1, ":", end=" ");
-        equipo = str(input());
-        equipo.capitalize();
+        goles = -1
+        equipo = str(input(f"Equipo {i+1} : "));
+        equipo = equipo.capitalize();
 
-        goles = int(input("Goles: "));
+        while goles < 0:
+            try:
+                goles = int(input("Goles: "));
+            except:
+                continue
 
         partido.append(equipo);
         resultado_partido.append(goles);
     
-    equipos.append(partido);
+    partidos.append(partido);
     resultados.append(resultado_partido);
 
-    seguir = str(input("Continuar?(S/N): "));
-    seguir = seguir.upper();
+quinela = []
+for partido, resultado in zip(partidos, resultados):
+    quinela.append(f"{partido[0]} {resultado[0]}-{resultado[1]} {partido[1]}")
 
-
-if len(equipos) == len(resultados):
-    for partido in equipos:
-        partido_resultado = [];
-        
-        partido_resultado = [partido[0] + "-" + partido[1] + ": " + str(resultados[equipos.index(partido)][0]) + "-" +str(resultados[equipos.index(partido)][1]) ];
-        quiniela.append(partido_resultado);
-
-for partido_resultado in quiniela:
-    print(partido_resultado);
+for partido in quinela:
+    print(partido);
 
