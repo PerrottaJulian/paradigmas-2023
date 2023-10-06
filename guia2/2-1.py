@@ -3,7 +3,7 @@
 ## b) Ingresar por teclado el tiempo record registrado para dicha carrera. Determinar si el tiempo del ganador es menor al tiempo record, mostrar un mensaje.
 ## c) Calcular y mostrar el tiempo promedio entre todos los ciclistas.
 
-
+#2023
 #variables
 n_competidores = int();
 nombre = str();
