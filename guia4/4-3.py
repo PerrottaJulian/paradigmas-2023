@@ -6,7 +6,7 @@ notas = []
 
 
 for i in range(5):
-    nota = int(input(f"Ingrese la nota del {i+1} examen: "))
+    nota = int(input(f"Ingrese la nota del {i+1}° examen: "))
     while nota < 0 or nota > 10:
         nota = int(input(f"Error. Vuelva a ingresar la nota del {i+1} examen: "))
     notas.append(nota)
