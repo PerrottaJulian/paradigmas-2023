@@ -8,7 +8,6 @@
 #variables
 texto = str();
 texto = "";
-
 #modulos
 def tieneDigito(string): #a)
     for caracter in string:
