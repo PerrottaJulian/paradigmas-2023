@@ -3,6 +3,7 @@
 ## b) Determinar cuántas palabras tenían 3 o menos letras, cuántas tenían 4 y hasta 6 letras, y cuántas tenían más de 6 letras.
 ## c) Determinar la longitud de la palabra más larga del t
 ## d) Determinar cuántas palabras contuvieron la expresión "de", pero en la primera mitad de la palabra
+
 # 2023
 
 #variables
@@ -32,7 +33,12 @@ def lenMayor6(string):
         return 1
     else:
         return 0  
-
+    
+def encontrarMayor(mayor_actual,nuevo):#c)
+    if nuevo > mayor_actual:
+        return nuevo
+    else:
+        return mayor_actual
 
 def contieneDe(string): #d)
     if string.find("de") != -1:
@@ -43,11 +49,7 @@ def mitadString(string):
     return string[0 : round(len(string)/2 + 0.1)]
 
 
-def encontrarMayor(mayor_actual,nuevo):#c)
-    if nuevo > mayor_actual:
-        return nuevo
-    else:
-        return mayor_actual
+
 
 def principal(texto):
     len_mayor = -1
@@ -55,7 +57,7 @@ def principal(texto):
     palabras_3omenos= 0
     palabras_entre4y6 = 0
     palabras_masde6 = 0
-    palabras_primeramitad_contienen_de = 0;
+    palabras_primeramitad_contienen_de = 0
 
     palabras = texto.split(" ")
 
@@ -88,3 +90,4 @@ while len(mitexto) == 0 or mitexto[len(mitexto) - 1] != ".":
 mitexto = mitexto[:len(mitexto)-1]
 
 principal(mitexto)
+

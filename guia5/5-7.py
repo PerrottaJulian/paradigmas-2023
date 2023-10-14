@@ -1,44 +1,38 @@
-## Desarrollar un procedimiento que imprima una fecha en formato DD/MM/AA. El dato que recibe es un longint con una fecha en formato aaaammdd.
-
+"""
+Desarrollar un procedimiento que imprima una fecha en formato DD/MM/AA. 
+El dato que recibe es un longint con una fecha en formato aaaammdd.
+"""
+#2023
 
 #modulos
-def cortarYConvertirEnInt (string, inicio, final):
-    if len(string) == 8:
-        return int(string[inicio : final])
-    else:
-        return 999
+def separarFecha(fecha):
+    fecha = str(fecha)
+    año = fecha[:4]
+    mes = fecha[4:6]
+    dia = fecha[6:]
 
-def cartelFecha (dia, mes, año):
-    return dia + "/" + mes + "/" + año
+    fecha_ordenada = {"año": año, "mes": mes, "dia": dia}
+    return fecha_ordenada
 
-
-def mayorA (n1, n2):
-    return n1 > n2
+def mostrarFecha (fecha):
+    print(f"{fecha['dia']}/{fecha['mes']}/{fecha['año']}")
 
 #variables
-fecha = str();
-año = int();
-mes = int();
-dia = int();
-
+mifecha = 0
 
 #codigo principal
 print("Ingresar una fecha en formato aaaammdd y se devolvera la fecha ordenada");
 
-fecha = int(input("Fecha: "));
-fecha = str(fecha);
+while len( str(mifecha) ) != 8:
+    try:
+        mifecha = int(input("Fecha: "))
+        if len( str(mifecha) ) != 8:
+            print("Ingrese una fecha correcta")
+    except:
+        print("Ingrese una fecha correcta")
+        continue
+            
 
-año = cortarYConvertirEnInt(fecha, 0, 4)
-mes = cortarYConvertirEnInt(fecha, 4, 6)
-dia = cortarYConvertirEnInt(fecha, 6, len(fecha))
+mifecha_ordenada = separarFecha(mifecha)
 
-
-while len(fecha) != 8 or mes > 12 or mes < 0 or dia < 0 or dia > 31:
-    fecha = int(input("Error. Volver a ingresar fecha: "));
-    fecha = str(fecha);
-
-    año = cortarYConvertirEnInt(fecha, 0, 4)
-    mes = cortarYConvertirEnInt(fecha, 4, 6)
-    dia = cortarYConvertirEnInt(fecha, 6, len(fecha))
-
-print(cartelFecha(str(dia), str(mes), str(año)));
+mostrarFecha(mifecha_ordenada)
