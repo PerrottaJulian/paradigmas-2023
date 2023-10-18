@@ -59,7 +59,7 @@ def cargarDatos(lista):
         continuar = input("Continuar? (s/n) ")
         time.sleep(1)
 
-    ## modulos del menu
+## modulos del menu
 def registrarPagos(lista, numero):
     for socio in lista:
         if socio["numero"] == numero:
