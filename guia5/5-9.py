@@ -28,7 +28,7 @@ def sumarDias(fecha, dias):
     return fecha
 #variables
 fecha = 0
-
+nuevos_dias = 0
 #codigo principal
 """
 while len(fecha != 8):
@@ -44,4 +44,9 @@ fecha = 20021227
 fecha_ordenada = separarFecha(fecha)
 print(f"Fecha actual: {fecha_ordenada}")
 
-print( f"Nueva fecha:  {sumarDias( fecha_ordenada, 5 )}  " )
+
+try:
+    nuevos_dias = int(input("Cuantos dias quiere sumarle a la fecha?: "))
+    print( f"Nueva fecha:  {sumarDias( fecha_ordenada, nuevos_dias)}  " )
+except:
+    print("ERROR. Ingrese una fecha.")

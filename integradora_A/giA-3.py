@@ -3,15 +3,21 @@
 
 
 def sucesión():
-    c = 0;
-    sum = 0;
-    n = int(input("Ingrese un numero: "));
+    nums = []
+    n = 0
     while n != -1:
-        if n >= 0:
-            c +=1;
-            sum += n;
-        n = int(input("Ingrese un numero: "));
-    print(f"Numeros ingresados: {c}   Suma = {sum}  Promedio = {sum/c} ")
+        try:
+            n = int(input("Ingrese un numero: "));
+            if n < -1:
+                print("Solo puede ingresar numeros naturales (-1 para finalizar)")
+        except:
+            print("Solo puede ingresar numeros naturales")
+            continue
 
-print("Debe ingresar una sucecion de nuemeros NATURALES. Para finalizar ingrese -1")
+        if n >= 0:
+            nums.append(n)
+
+    print(f"Numeros ingresados: {len(nums)}   Suma = {sum(nums)}  Promedio = {sum(nums)/len(nums)} ")
+
+print("Debe ingresar una sucecion de numeros NATURALES. Para finalizar ingrese -1")
 sucesión()
