@@ -3,7 +3,6 @@
 ## Visualiza el contenido de la matriz en pantalla.
 
 
-
 #desarrollo
 marco = [];
 for i in range(5):

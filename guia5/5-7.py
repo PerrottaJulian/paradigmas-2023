@@ -21,6 +21,9 @@ def mostrarFecha (fecha):
 mifecha = 0
 
 #codigo principal
+
+  #codigo para leer la fecha por consola
+""" 
 print("Ingresar una fecha en formato aaaammdd y se devolvera la fecha ordenada");
 
 while len( str(mifecha) ) != 8:
@@ -31,8 +34,9 @@ while len( str(mifecha) ) != 8:
     except:
         print("Ingrese una fecha correcta")
         continue
+"""
             
-
+mifecha = 20020712 #fecha manuel ingresada por codigo (borrar/comentar si se va a usar el codigo de arriba)
 mifecha_ordenada = separarFecha(mifecha)
 
 mostrarFecha(mifecha_ordenada)
