@@ -76,7 +76,14 @@ def modificarNota(lista_materias, nombre, año, nueva_nota):
         if materia["nombre"] == nombre and materia["año"] == año:
             materia["nota"] = nueva_nota
 
-#def promedioEntre2007y2008(lista_materias)
+def promedioEntre2007y2008(lista_materias):
+    suma = 0
+    contador = 0
+    for materia in lista_materias:
+        if materia["año de aprobacion"] == 2007 or materia["año de aprobacion"] == 2008:
+            suma += materia["nota"]
+            contador += 1
+    return suma/contador      
 
 def menu(materias, opc):
     if opc == 1:
@@ -93,7 +100,8 @@ def menu(materias, opc):
         
         modificarNota(materias, nombre, año, nueva_nota)    
     elif opc == 3:
-        pass
+        prom = promedioEntre2007y2008(materias)
+        print(f"El promedio (2007-2008) es: {prom}")
     
 #* codigo principal
 #const
@@ -111,6 +119,7 @@ while opc != 4:
     opc = definirIntEntre(1, 4, "Que opcion elije? ")
     menu(materias, opc)
     esperar()
+    
     
 """print(listadoDeMaterias(materias))
 

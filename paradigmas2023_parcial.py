@@ -53,7 +53,6 @@ def menores_puntajes (dict_equipos):
     bandera = True
 
     for equipo, puntaje in dict_equipos.items():
-        
         if bandera:
             menor_puntaje = puntaje
             bandera = False
