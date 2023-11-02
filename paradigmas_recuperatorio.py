@@ -11,7 +11,6 @@ c) Calcular el promedio de materias aprobadas en el año 2007 y 2008
 
 #* carpetas
 import time
-from random import randint
 
 #* modulos
 def esperar():
