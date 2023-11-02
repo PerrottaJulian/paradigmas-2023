@@ -7,7 +7,9 @@ Luego, dar la siguiente informacion
 3- promedio de algo
 4- menu
 """
+import time
 
+#modulos
 def ingreso_de_datos (lista_equipos, dict_equipos):
     for equipo in lista_equipos:
         resultados = []
@@ -43,7 +45,7 @@ def puntajes(dict_equipos):
 def tabla(dict_equipos):
     tabla = ""
     for equipo, puntaje in dict_equipos.items():
-        tabla += f"Equipo {equipo}: {puntaje} puntos\n" 
+        tabla += f"\nEquipo {equipo}: {puntaje} puntos" 
     return tabla
 
 def menores_puntajes (dict_equipos):
@@ -82,9 +84,7 @@ def menu(opcion, dict_equipos):
     elif opcion ==3:
         pass
 
-        
-
-
+#Codigo        
 equipos = ["arg", "brasil", "uru", "chile"]#, "par", "bol", "col", "ven", "mexico", "usa"]
 equipos_resultados = dict()
 
@@ -93,9 +93,15 @@ print(equipos_resultados)
 
 opc_menu = -1
 while opc_menu != 4:
-    print("******* MENU *******\n1- tabla de puntos\n2- equipos con menor puntaje\n3- promedio de algo\n4-Salir")
-    opc_menu = int(input("Que opcion elige? "))
+    print("\n******* MENU *******\n1- tabla de puntos\n2- equipos con menor puntaje\n3- promedio de algo\n4-Salir")
+    try:
+        opc_menu = int(input("Que opcion elige? "))
+    except:
+        print("Error")
+        time.sleep(1)
+        continue
     menu(opc_menu, equipos_resultados)
+    time.sleep(1)
 
 
 """equipos_con_puntajes = puntajes(equipos_resultados )
