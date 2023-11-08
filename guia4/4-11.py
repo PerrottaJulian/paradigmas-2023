@@ -5,7 +5,6 @@
 
 
 #carpetas
-from random import randint
 
 #desarrollo
 diagonal = [];
