@@ -34,7 +34,7 @@ def definirIntEntre (piso, techo, nombre):
 
 def Ingreso_de_datos():
     materias = list()
-    for i in range(3):
+    for i in range(3): #?serian 55 en realidad
         materia = dict()
         
         codigo = i+1
